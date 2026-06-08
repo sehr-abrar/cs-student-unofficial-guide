@@ -40,7 +40,13 @@ This knowledge is hard to find through official channels because course catalogs
 
 **Overlap:** 50 characters
 
-**Reasoning:** The documents are medium-length guide sections separated by headings (e.g., "OFFICE HOURS ARE NOT OPTIONAL", "HOW TO EMAIL A PROFESSOR"). Each section is a self-contained piece of advice — typically 3–8 sentences — making 400 characters a good fit: large enough to capture a complete point, small enough that retrieval returns a focused result rather than an entire document. A 50-character overlap ensures no sentence is split at a chunk boundary without any context carrying over. Long-form documents like the grad school guide have natural section breaks that align well with this size. Professor reviews run slightly longer per entry (~200–400 chars each), so this size typically captures one full review or one clear subsection of advice.
+**Reasoning:** The corpus is a mix of document types. Professor reviews are short and dense (one review ≈ 200–400 characters of opinion about a specific person or course). Guide sections are longer, multi-paragraph advice (study strategies, internship timelines) where a single point spans 3–6 sentences. 400 characters is large enough to capture a complete thought in either case while staying small enough that retrieval returns a focused result rather than half a document.
+
+**Why 50-character overlap:** If a key fact ("she will sit with you for 20 minutes on a single problem") falls near a chunk boundary, it may appear partially in two adjacent chunks, but neither chunk alone is retrievable as a complete idea. A 50-character overlap carries the tail of the previous chunk into the start of the next, so a sentence that straddles a boundary is present in full within at least one chunk.
+
+**Signs of wrong chunk size:**
+- *Too small (e.g., 100 characters):* Retrieval returns sentence fragments that lack enough context for the LLM to form a useful answer. A query about "Prof. Chen's exam format" might retrieve "Her exams are fair" with no surrounding detail.
+- *Too large (e.g., 1500 characters):* Retrieval returns chunks so broad that they contain both relevant and irrelevant information. The LLM sees noise alongside the answer, increasing the chance of hallucination or a diluted response. Large chunks also reduce the number of distinct chunks retrieved (top-k=4 × 1500 chars ≈ 6000 chars of context, which is wasteful and less precise).
 
 ---
 
@@ -49,6 +55,10 @@ This knowledge is hard to find through official channels because course catalogs
 **Embedding model:** `all-MiniLM-L6-v2` via `sentence-transformers`
 
 **Top-k:** 4
+
+**Why top-k=4:** 4 chunks × ~400 characters = ~1600 characters of context, which is enough for the LLM to synthesize a complete answer without being overwhelmed. Too few (k=1 or 2) risks missing relevant context when an answer spans multiple sections — e.g., "how hard is OS?" touches both the professor review and the workload guide. Too many (k=10+) floods the prompt with loosely related chunks, increasing cost and the chance the model latches onto irrelevant material.
+
+**Why semantic search works without exact word matches:** Embedding models map text into a high-dimensional vector space where semantically similar phrases land near each other, regardless of surface words. A query like "is the OS course brutal?" produces a vector close to "the projects have almost no scaffolding" even though no word overlaps — both express difficulty and workload. The model learned these associations during pretraining on large corpora. This is why semantic search outperforms keyword search for conversational, opinion-based queries.
 
 **Production tradeoff reflection:** `all-MiniLM-L6-v2` is a 22M-parameter model designed for semantic similarity, runs locally with no API cost, and handles sentence-length inputs well — a good fit for short review excerpts and advice paragraphs. Its main limitations are a 256-token context window (fine for our 400-char chunks) and reduced accuracy on highly domain-specific vocabulary (e.g., course codes, professors' names as proper nouns). In production, I'd weigh switching to `text-embedding-3-small` (OpenAI) for stronger multilingual support and higher accuracy on diverse student language, or `instructor-xl` for the ability to tune the embedding prompt to the retrieval task. Latency is a tradeoff: API-hosted models add network overhead; a local model like MiniLM stays under 50ms per query. For a student-facing tool that should respond quickly with no per-query cost, local embedding is the right default.
 
