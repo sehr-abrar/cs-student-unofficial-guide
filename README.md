@@ -303,4 +303,4 @@ The spec's AI Tool Plan specified using LangChain's `CharacterTextSplitter` for 
 
 ## Demo Video
 
-You can find the demo video [here](https://www.youtube.com/watch?v=7yq81KiIZmA)!
+You can find the demo video [here](https://youtu.be/bQAllPeyHj0)!
