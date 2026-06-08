@@ -134,3 +134,9 @@ The spec's AI Tool Plan specified using LangChain's `CharacterTextSplitter` for 
 - *What I gave the AI:* The Retrieval Approach and Evaluation Plan sections from `planning.md`, the grounding requirement (answer only from retrieved context, decline if not covered), the output format (answer + source list), and the Groq API as the LLM backend.
 - *What it produced:* `generate.py` with `ask()` — a system prompt with numbered CRITICAL RULES, a `format_context()` helper that formats retrieved chunks as a numbered list, and a Groq API call with `temperature=0.2`. Also produced `app.py` with a Gradio Blocks interface.
 - *What I changed or overrode:* The initial system prompt used softer language ("try to answer only from the documents"). I rewrote it to use explicit imperative rules ("Answer ONLY using information explicitly stated in the DOCUMENTS section below") and tested the grounding by asking a question the documents don't cover ("best sushi near campus"). The first version returned a plausible non-answer; after the rule tightening, it correctly responded "I don't have enough information in my documents to answer that." I also added `temperature=0.2` (the AI's default was 0.7), which reduced hedging language and made responses more concise and direct.
+
+---
+
+## Demo Video
+
+You can find the demo video [here](https://www.youtube.com/watch?v=7yq81KiIZmA)!
