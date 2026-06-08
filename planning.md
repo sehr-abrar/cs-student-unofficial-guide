@@ -89,10 +89,11 @@ This knowledge is hard to find through official channels because course catalogs
 ```
 Document Ingestion          Chunking               Embedding + Vector Store
 ─────────────────           ─────────────          ────────────────────────
-.txt files in               CharacterTextSplitter  sentence-transformers
-documents/           ──►    (400 chars,        ──► all-MiniLM-L6-v2
-(12 documents)              50 overlap)            + ChromaDB (local)
-                            via LangChain
+.txt files in               custom sliding-        sentence-transformers
+documents/           ──►    window chunker     ──► all-MiniLM-L6-v2
+(12 documents)              (400 chars,            + ChromaDB (local)
+                            50 overlap)
+                            ingest.py
 
         │
         ▼
@@ -100,8 +101,10 @@ documents/           ──►    (400 chars,        ──► all-MiniLM-L6-v2
     ─────────                         ──────────
     Query → embed                     Top-4 chunks → context
     → ChromaDB similarity   ──────►   + system prompt (grounding)
-      search (top-k=4)               → Claude claude-haiku-4-5
+      search (top-k=4)               → llama-3.3-70b-versatile
+      retrieve.py                      via Groq API
                                      → Answer with source citations
+                                       generate.py / app.py
 ```
 
 ---
