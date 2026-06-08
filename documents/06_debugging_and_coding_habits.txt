@@ -1,0 +1,48 @@
+Source: CS Student Coding Habits and Debugging Guide
+URL: documents/06_debugging_and_coding_habits.txt
+
+---
+
+DEBUGGING: THE ACTUAL PROCESS
+
+Students who struggle with programming often share one habit: they stare at the error message hoping to understand it without changing anything. Here's a better process.
+
+Step 1: Read the error message slowly. Not "read it and panic." Read it. The error message usually names the file, line number, and type of error. Start there.
+
+Step 2: Add a print statement (or use a debugger) right before the crash. Print the variables you think matter. Your assumption about what the variable contains is probably wrong — that's usually the bug.
+
+Step 3: Form a hypothesis. "I think the list is empty when it shouldn't be." Then test it.
+
+Step 4: Change one thing at a time. If you change three things at once and it starts working, you don't know why, and you'll see the same bug again later.
+
+---
+
+COMMON BEGINNER MISTAKES (AND HOW TO STOP MAKING THEM)
+
+Off-by-one errors: almost every loop you write in your first year will have an off-by-one at least once. When your output is almost right but off by one element, check your loop bounds first.
+
+Mutating a list you're iterating: if you remove items from a list while looping over it, Python (and most languages) will behave unexpectedly. Create a copy or use list comprehension instead.
+
+Not testing edge cases: your code works on the example input and fails on the actual test. Edge cases: empty list, single element, all duplicates, negative numbers, zero. Always test these manually before submitting.
+
+---
+
+VERSION CONTROL FROM DAY ONE
+
+Use git. Commit after every working state, not just at the end. The commit message "fixed the bug" is useless; "fix off-by-one in merge step of merge sort" is useful. This is a habit, and you need to build it now.
+
+You will accidentally delete code you needed. git saves you. The student who "lost" their homework because they didn't use version control and overwrote the file is a story TAs tell at every orientation. Don't be that story.
+
+---
+
+HOW LONG SHOULD THIS TAKE?
+
+A common source of anxiety: "I've been on this problem for 3 hours. Am I bad at this?"
+
+3 hours on a hard problem is normal. Experienced engineers spend days on a single bug. The benchmark isn't how fast you solve it; it's whether you make progress. If you've been stuck for more than an hour without any progress, that's when you ask for help — not because the problem is too hard, but because asking for help is part of the process.
+
+---
+
+CODING STYLE
+
+Write code for the next person to read it, which will usually be you in 3 weeks when you've forgotten what you wrote. Name variables what they are. Don't use `x` when `user_age` is what you mean. Write a one-line comment when you do something clever, because clever code that nobody can maintain is a liability.

@@ -1,0 +1,40 @@
+Source: Student reviews of Algorithms course professors
+URL: documents/02_professor_reviews_algorithms.txt
+
+---
+
+REVIEW: Prof. Chen — Introduction to Algorithms (CS301)
+
+Overall: 4/5 | Difficulty: Hard | Would take again: Yes
+
+Dr. Chen is brilliant but moves fast. The lectures are dense — if you miss one, you will be lost for two weeks. She posts notes online but they're incomplete summaries, not substitutes for attending. Her exams are fair in the sense that they test what she covered, but she goes deep into complexity proofs, not just memorizing recurrences.
+
+Best advice: form a study group specifically for this course. The homework sets are designed to be discussed. She openly said in week 1: "you should work through the problems together, but write your own solutions." Take her at her word. Talking through dynamic programming with a classmate will save you.
+
+Office hours: almost no one shows up to her Thursday 3–5pm slot. Go. She will sit with you for 20 minutes on a single problem if you're stuck and have tried something first.
+
+Exams: two midterms and a final, all written. No partial credit on proofs unless you clearly show your reasoning. Write more than you think you need to.
+
+---
+
+REVIEW: Prof. Marcus — Design and Analysis of Algorithms (CS401)
+
+Overall: 3/5 | Difficulty: Very Hard | Would take again: Depends
+
+Prof. Marcus knows everything and wants you to know it too. The problem is he doesn't always calibrate how long problems take. One homework set had a problem that I later found out was equivalent to an open research question — we were expected to get "partial credit for a good attempt." Know what you're signing up for.
+
+That said, his lectures are the clearest explanations of NP-completeness reductions I've seen. He uses visual diagrams and walks through them slowly. If that's what you need to click, take the course.
+
+Grading: TAs do the grading and are inconsistent. Go to regrades promptly and bring your work. Most regrade requests in this class succeed if you can explain your reasoning.
+
+---
+
+REVIEW: Prof. Williams — Data Structures (CS201)
+
+Overall: 5/5 | Difficulty: Medium | Would take again: Absolutely
+
+Best intro to data structures you'll find. Prof. Williams teaches like he still remembers being confused by linked lists for the first time, which means he anticipates your questions before you ask them. Lecture slides are complete and detailed. He records lectures (check the course page before semester starts to confirm).
+
+The homeworks are challenging but scale well — early ones are easier to build confidence, later ones require real thinking. His tests are straightforward if you did the homeworks.
+
+One thing: he cold-calls in lecture sometimes. It's never humiliating — he gives you time to think and hints if you're stuck — but be prepared to engage.

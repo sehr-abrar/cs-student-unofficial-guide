@@ -1,0 +1,44 @@
+Source: CS Campus Resources Guide — Student-Authored
+URL: documents/09_campus_resources_for_cs_students.txt
+
+---
+
+THE CS TUTORING CENTER
+
+Most CS departments run a tutoring center (sometimes called the "CS Help Room" or "TA Help Desk") during evening hours. This is different from office hours — it's staffed by undergrad TAs and is more informal.
+
+What it's good for: getting unstuck on homework, quick syntax questions, checking if your approach makes sense before you commit to it.
+
+What it's not for: having someone explain the entire lecture you missed, or debugging a 500-line program you've never read carefully. Come prepared with a specific question.
+
+Hours and locations vary — check your department's website. Most help rooms are most useful Tuesday through Thursday evenings; Sunday nights before deadlines are predictably crowded.
+
+---
+
+THE WRITING CENTER
+
+CS students underuse the writing center. Technical reports, project proposals, and documentation matter in this field. The writing center will help you with any written assignment, including technical ones. You don't need to be "bad at writing" to go — writers who get feedback write better.
+
+---
+
+CAREER SERVICES VS. GOING ALONE
+
+Career services at most universities offers resume reviews, mock interviews, and connections to employers. The quality varies, but the mock interview practice is usually worth it — especially if you're nervous about behavioral questions ("tell me about a time you had a conflict with a teammate").
+
+Companies that recruit on-campus through career services tend to be larger and more structured. Startups rarely use career fairs. For startup jobs, LinkedIn and direct applications are more effective.
+
+---
+
+THE LIBRARY'S COMPUTING RESOURCES
+
+If your laptop breaks (it will, at the worst time), the library has computing labs open late. Know where they are before you need them. Some campuses also have laptop lender programs — check yours now.
+
+Also: research databases. ACM Digital Library and IEEE Xplore are free through most university libraries. If you're doing any research or want to read papers, use these. Don't pay for papers.
+
+---
+
+PEER MENTORING PROGRAMS
+
+Many CS departments run peer mentoring programs matching upper-division students with first- and second-year students. If you're a first-year, sign up. You'll get answers to questions that official channels won't give you: which sections of which courses to avoid, which professors curve generously, when the department actually adds students from waitlists.
+
+If you're upper-division, consider being a mentor. Explaining concepts to someone newer consolidates your own understanding.

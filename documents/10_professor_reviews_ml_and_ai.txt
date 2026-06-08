@@ -1,0 +1,42 @@
+Source: Student reviews of Machine Learning and AI courses
+URL: documents/10_professor_reviews_ml_and_ai.txt
+
+---
+
+REVIEW: Prof. Rodriguez — Introduction to Machine Learning (CS420)
+
+Overall: 5/5 | Difficulty: Hard | Would take again: Yes
+
+The best course I took in my CS degree, and also the one that required the most preparation. CS420 assumes you're comfortable with linear algebra, probability, and Python. If you're not, take the math prerequisites seriously — the course will not slow down for you.
+
+Prof. Rodriguez explains the intuition behind algorithms before the math, which is the right order. Gradient descent made no sense to me from reading; after her visual explanations in lecture, it clicked. She also acknowledges when a topic is genuinely confusing and why, which I found more useful than false clarity.
+
+Projects: in Jupyter notebooks, using scikit-learn and eventually PyTorch. Well-designed — each builds on the last. The final project is open-ended (you choose a dataset and task), and she gives specific feedback on proposals.
+
+Exams: written, mix of derivation and conceptual questions. You need to understand the math, not just how to call sklearn.fit().
+
+---
+
+REVIEW: Prof. Kim — Natural Language Processing (CS431)
+
+Overall: 4/5 | Difficulty: Very Hard | Would take again: Yes (for the right student)
+
+NLP is a fast-moving field and Prof. Kim updates the course every year, which means the syllabus isn't always finalized until week 2. This can be frustrating. The material covers classical methods (n-grams, HMMs) and modern deep learning (transformers, fine-tuning LLMs), which is a lot of ground.
+
+His assignments use Hugging Face and PyTorch. If you haven't used transformers before, budget extra time on the first assignment just to get the environment set up.
+
+Best aspect: guest lectures from researchers and practitioners. Two of the guests were from industry teams doing real NLP work — those sessions alone are worth the course.
+
+Office hours: packed near deadlines. Come earlier in the week.
+
+---
+
+REVIEW: Prof. Patel — Computer Vision (CS445)
+
+Overall: 3/5 | Difficulty: Hard | Would take again: Maybe
+
+Interesting material; the course itself feels disorganized. Lectures are dense with details that may or may not appear on exams, and it's not always clear which. Students who read the textbook (Szeliski, Computer Vision: Algorithms and Applications — free PDF online) alongside lectures tend to do significantly better.
+
+Projects are the highlight: image filtering, edge detection, panorama stitching, object recognition. They're hard but you actually understand what you're building. Use numpy vectorization — solutions using Python loops will be too slow.
+
+Advice: form a project partner early. The workload is high enough that two people is meaningfully better than one. The collaboration policy explicitly allows partnered projects.

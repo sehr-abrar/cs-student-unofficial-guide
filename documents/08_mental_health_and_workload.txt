@@ -1,0 +1,35 @@
+Source: CS Student Wellbeing and Workload Management
+URL: documents/08_mental_health_and_workload.txt
+
+---
+
+THE COMPARISON TRAP
+
+CS departments have a visible culture of people performing effortlessness. Someone in your cohort will claim they wrote the whole project in one night. Someone else will say the exam was easy. Some of these people are lying. Some aren't. None of it is information about you.
+
+The research on this is clear: social comparison in academic settings correlates with anxiety and lower performance, not higher. The students who do best tend to focus on their own progress relative to their own past, not relative to others.
+
+---
+
+IMPOSTOR SYNDROME IS COMMON AND EXPECTED
+
+Most CS students feel, at some point, like they don't belong. This feeling is not evidence. It shows up most often: after a hard exam, when someone else seems to understand a concept faster, when you're debugging for hours and nothing works.
+
+What's actually true: you were admitted because you met the criteria. Hard things feeling hard is not a sign you can't do them. The feeling of not belonging is so common in CS programs that your institution's counseling center almost certainly has resources specifically for STEM students.
+
+---
+
+WHEN WORKLOAD BECOMES UNSUSTAINABLE
+
+Signs you're past "hard" into "unsustainable": sleeping fewer than 6 hours per night consistently, unable to eat regular meals, missing classes because you're too exhausted or anxious. These are not signs to push harder. They're signs to talk to someone.
+
+What you can do:
+- Talk to your academic advisor before you're in crisis, not during. They have options — extensions, medical withdrawals, incomplete grades — that you may not know about.
+- The counseling center at most universities has same-week crisis appointments.
+- Email your professor. "I'm struggling and may need to talk about an extension" sent before the deadline gets a different response than a no-show.
+
+---
+
+THE SEMESTER WALL
+
+Around week 8–10, most students hit a wall. The novelty of the semester is gone, the end isn't visible yet, and assignments are compounding. This is normal and expected. Lower your goals for that week if you need to: finish the assignments, sleep, eat. Don't make permanent decisions (dropping a major, transferring) during week 9 of a hard semester. Revisit in week 14.

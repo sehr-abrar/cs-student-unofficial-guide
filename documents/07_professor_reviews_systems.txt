@@ -1,0 +1,42 @@
+Source: Student reviews of Systems and OS courses
+URL: documents/07_professor_reviews_systems.txt
+
+---
+
+REVIEW: Prof. Okonkwo — Operating Systems (CS350)
+
+Overall: 4/5 | Difficulty: Very Hard | Would take again: Yes
+
+OS with Prof. Okonkwo is the hardest course most students take at this school, and also the one they reference most in job interviews. The projects are real: you implement pieces of a kernel in C, including scheduling and memory management. If you've never debugged a segfault at 2am, you will now.
+
+What makes it survivable: Prof. Okonkwo's lectures are clear and structured. He starts each lecture with a roadmap of what you'll learn and ends with a summary. His exams closely follow lecture content — if you attended and took notes, you can pass the exams.
+
+What's hard: the projects have almost no scaffolding. You are given a spec and a starter codebase and expected to figure out the rest. TAs say "read the spec" a lot, and they're right.
+
+Advice: start projects the same day they're released. The last 20% takes as long as the first 80%.
+
+---
+
+REVIEW: Prof. Tanaka — Computer Networks (CS360)
+
+Overall: 3/5 | Difficulty: Medium-Hard | Would take again: Maybe
+
+Interesting material, uneven delivery. Prof. Tanaka is clearly an expert who does real research in networking, but his lectures sometimes assume you have background you don't. If you get lost, the textbook (Tanenbaum, Computer Networks) is better for catch-up than asking in class.
+
+Projects are in Python and well-scaffolded. Building a simplified TCP implementation was genuinely fun once I understood what I was doing.
+
+Exams: multiple choice and short answer. Heavier on protocol details and packet formats than I expected. Flashcards actually help here more than in most CS courses.
+
+Office hours: very useful. He's much clearer one-on-one than in lecture.
+
+---
+
+REVIEW: Prof. Vasquez — Computer Architecture (CS330)
+
+Overall: 5/5 | Difficulty: Medium | Would take again: Yes
+
+Prof. Vasquez makes architecture approachable. She explains the "why" behind design decisions — why cache lines are 64 bytes, why branch prediction works the way it does — not just the "what." This is rarer than it sounds.
+
+Exams include circuit diagrams and MIPS assembly problems. Neither is as scary as it sounds after her lectures. Practice the problems from the slides, not just reading them.
+
+Note: she recently switched to using RISC-V instead of MIPS in her examples. If you find online resources using MIPS, they're still useful for concepts but the syntax will differ.

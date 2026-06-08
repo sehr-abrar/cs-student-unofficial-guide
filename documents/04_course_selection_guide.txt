@@ -1,0 +1,42 @@
+Source: Unofficial CS Course Selection Guide
+URL: documents/04_course_selection_guide.txt
+
+---
+
+HOW TO PICK YOUR COURSES EACH SEMESTER
+
+Registration opens at 6am and the good sections fill fast. Here's the strategy.
+
+KNOW YOUR PREREQUISITES COLD
+
+CS departments have prerequisite chains and they mean it. Taking CS301 (Algorithms) without finishing CS201 (Data Structures) is how students drop courses in week 3. Even if the registration system lets you in, you will not have the foundation. Map out your four-year plan in week 1 of college so you know which courses gate which.
+
+READING RATE MY PROFESSORS CORRECTLY
+
+RMP scores are self-selected and skewed toward extreme experiences. A 3.5/5 with 40 reviews is more informative than a 4.8/5 with 3 reviews. Read the text comments, not just the number. Watch for patterns: if 8 out of 12 comments mention the same issue (exams are unfair, grading is slow, professor reads from slides), that pattern is probably real. One or two unusual complaints probably aren't.
+
+Look at the date of reviews. A professor with glowing reviews from 4 years ago who got new complaints in the last year may have changed courses or teaching style.
+
+BALANCING YOUR SEMESTER
+
+CS students often take "easy" semesters that aren't. A 4-course load with two technical CS courses plus a math course is heavy even if it looks normal on paper. Rule of thumb: no more than two courses with significant weekly programming assignments in the same semester, especially if you're working part-time or doing research.
+
+WHICH ELECTIVES ACTUALLY MATTER
+
+For industry: machine learning, systems/OS, and software engineering courses are what recruiters ask about.
+For grad school: theory courses (algorithms, complexity), research experience, and grades in core courses.
+For your own sanity: take at least one course per year that genuinely interests you, not just one that looks good. You learn better when you care about the material.
+
+---
+
+WAITLISTS
+
+Show up to the first class even if you're on the waitlist. Professors and department coordinators have override codes. Introduce yourself, express genuine interest, and ask directly: "Is there a chance I can get an override?" Many students on waitlists get in by the second week because others drop.
+
+Do not email "Can I get into your class?" to a professor on day 1 without attending. Come to class first.
+
+---
+
+LATE DROPS AND WITHDRAWALS
+
+Know your university's deadlines for late drops (usually 4–6 weeks in). A W on your transcript is better than a D or F. If a course is genuinely going wrong — not just hard, but going wrong — talk to your academic advisor before the deadline. Decisions made in week 7 are better than regrets in week 15.

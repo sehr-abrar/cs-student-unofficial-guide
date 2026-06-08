@@ -1,0 +1,46 @@
+Source: Academic Integrity in CS — What Students Wish They Knew
+URL: documents/11_academic_integrity_guide.txt
+
+---
+
+WHY CS ACADEMIC INTEGRITY IS DIFFERENT
+
+In most humanities courses, plagiarism is about copying text. In CS, the rules are more complicated because collaboration is sometimes required, sometimes encouraged, and sometimes forbidden — all in the same department.
+
+Read every course's collaboration policy. They are different. "You may discuss approaches" and "no collaboration permitted" are two different things, and appearing in two different courses in the same semester. Treat each policy as its own rule set.
+
+---
+
+COMMON VIOLATIONS AND HOW THEY HAPPEN
+
+Sharing code: You help a friend who's stuck by sharing your solution "just to look at." They rewrite it slightly. Both solutions are flagged by plagiarism detection software (MOSS is widely used). Both students face academic integrity proceedings. This happens every semester.
+
+What to do instead: talk through your approach in English. Draw diagrams. Explain concepts. Stop before touching their code or showing them yours.
+
+Stack Overflow and GitHub: using code snippets from external sources is sometimes permitted (check the policy) and sometimes not. When it is permitted, you typically must cite the source in a comment. When it's not, copying even 3 lines of someone else's solution can trigger a flag.
+
+Getting help with debugging: asking a TA to look at your code is always fine. Asking a friend from the same course to find and fix your bug for you is often a violation. If you're not sure, ask the professor.
+
+---
+
+AI-ASSISTED CODE (IMPORTANT — POLICIES VARY)
+
+Many CS courses have now developed explicit policies on AI tools (GitHub Copilot, ChatGPT, Claude). These vary:
+- Some courses ban AI entirely
+- Some allow AI for understanding but not for generating solutions to be submitted
+- Some allow AI with citation requirements
+- A few have no policy yet
+
+If the syllabus doesn't address AI, ask the professor in writing before using it. "I asked my professor and they said it was OK" is a defense. "The syllabus didn't say I couldn't" often isn't.
+
+---
+
+IF YOU'RE ACCUSED
+
+Academic integrity proceedings are stressful. A few facts:
+1. You are entitled to see the evidence against you
+2. You are entitled to respond before a decision is made
+3. You can bring a support person (at most schools) to any meeting
+4. The first offense for a minor violation is often a warning or zero on the assignment, not expulsion
+
+Talk to the dean of students office as soon as you receive any notification. They exist to help you navigate the process regardless of what happened.

@@ -1,0 +1,47 @@
+Source: CS Undergraduate Research and Grad School Guide
+URL: documents/12_research_and_grad_school.txt
+
+---
+
+SHOULD YOU DO RESEARCH?
+
+Undergrad research is valuable in two cases: (1) you're seriously considering a PhD and need to know what research is actually like, or (2) there's a problem space you're genuinely curious about that isn't covered by coursework.
+
+Research is not valuable as a resume line if you show up, get confused, do some literature review, and leave after one semester. Professors have seen this pattern many times. A meaningful research contribution takes sustained engagement, usually over 2+ semesters.
+
+If you're uncertain, start with a reading group or join an existing project as a contributor before committing to an official research credit.
+
+---
+
+HOW TO FIND A RESEARCH ADVISOR
+
+Go to professor websites. Read their recent papers (abstracts and introductions are enough to start). Email 3–5 professors whose work you actually find interesting. In the email: explain what you found interesting about a specific paper or project, describe your relevant background, and ask if they have research opportunities for undergraduates.
+
+Personalized emails get responses. Generic "I want to do research" emails don't.
+
+Most professors will invite you to a short meeting before deciding. Come prepared: know their recent work, have a question ready, and know what skills you're bringing.
+
+---
+
+PHD APPLICATIONS
+
+For CS PhD programs, the most important factors in roughly this order:
+1. Research experience and publications (even co-author on a workshop paper matters)
+2. Strong letters of recommendation from people who have seen your research ability
+3. Statement of purpose that is specific about what you want to study and why
+4. GRE is no longer required by most programs
+5. GPA matters somewhat but a 3.5 with publications beats a 4.0 without research experience
+
+Apply to 8–12 programs across a range of rankings. Top-5 programs are near-lottery even with strong applications. Middle-tier R1 programs have excellent faculty and more predictable admissions.
+
+---
+
+TIMELINE
+
+Junior year fall: start identifying professors to email, take core courses that demonstrate aptitude.
+Junior year spring: begin outreach for summer research positions (REUs, on-campus research).
+Senior year fall: GRE prep (if applying to programs that require it), draft statement of purpose, get letters confirmed.
+Senior year November–December: applications due (most deadlines December 1–15).
+March–April: admission decisions and visit weekends.
+
+The timeline feels far away until it doesn't. Start a year earlier than you think you need to.

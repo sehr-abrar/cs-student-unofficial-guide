@@ -1,0 +1,48 @@
+Source: CS Internship and Recruiting — Student-to-Student Advice
+URL: documents/05_internship_recruiting_tips.txt
+
+---
+
+RECRUITING TIMELINE (THIS IS EARLIER THAN YOU THINK)
+
+Big tech internship recruiting starts in August/September for the following summer. If you're applying for a summer internship and you wait until January, you've already missed Google, Meta, Amazon, and most large companies. Their processes are:
+1. Online application (August–October)
+2. Online assessment (OA) — 1–2 coding problems on HackerRank or similar
+3. Phone/video interview (1–2 rounds, 45 min each)
+4. Offer (November–December, sometimes later for smaller companies)
+
+Startups and smaller companies recruit later, usually November through March.
+
+---
+
+WHAT ACTUALLY GETS YOU INTERVIEWS
+
+In order of impact:
+1. Referrals — a current employee submitting your resume is more valuable than almost anything else. Start building these relationships sophomore year or earlier.
+2. Projects on your resume that show you can build things. Not homework projects. Real things: open source contributions, personal tools other people use, research code.
+3. GPA matters for some companies (Google cares, many don't). A 3.2 is rarely the reason you don't get an interview; a blank resume is.
+
+Leetcode: you need to practice. Easy problems fluently, medium problems reliably. Hard problems are rarely asked in first-round screens and commonly asked in on-site/final rounds at top companies.
+
+---
+
+WHAT TO PUT ON YOUR RESUME
+
+One page. No objectives sections. Use action verbs ("built," "reduced," "designed") with measurable results where possible ("reduced API latency by 40%"). Your class projects are fine for your first resume — just describe them accurately. Don't claim you "led" something if you didn't.
+
+Skills section: list the languages and tools you actually know. If someone asks you to write a merge sort in a language you listed and you can't, that's a bad interview.
+
+---
+
+NEGOTIATING OFFERS
+
+You can negotiate internship offers. Most companies expect it. The scripts are simple:
+"I'm very excited about this offer. I have another offer at $X/week — is there any flexibility on the compensation?"
+
+You don't need a competing offer to negotiate, but having one helps. The worst they say is no. Nobody has ever had an internship offer rescinded for politely asking about compensation.
+
+---
+
+REJECTIONS
+
+You will get rejected. Many times. Students who land top internships often have 50+ applications, 20 OAs, 10 first-rounds, 3 final rounds, and 2 offers. The funnel is brutal and mostly not about you. Apply widely, track everything in a spreadsheet, and don't treat rejections as information about your worth.

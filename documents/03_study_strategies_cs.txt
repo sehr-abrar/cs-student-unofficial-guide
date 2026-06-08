@@ -1,0 +1,44 @@
+Source: CS Study Strategies — Compiled student advice
+URL: documents/03_study_strategies_cs.txt
+
+---
+
+HOW TO ACTUALLY STUDY FOR CS EXAMS
+
+Flashcards don't work for CS the way they work for bio. CS exams test whether you can apply concepts under pressure, not recall definitions. Here's what works instead.
+
+PRACTICE PROBLEMS, NOT REVIEW
+
+Re-reading your notes feels productive and is mostly not. Get old exams (many professors post them), sit down with no notes, set a timer, and try the problems. When you get stuck, write down exactly where you got stuck and why. That's what you study.
+
+THE RUBBER DUCK METHOD IS REAL
+
+If you're debugging and have been stuck for more than 30 minutes, explain the problem out loud to someone — anyone. Describe what your code is supposed to do, what it actually does, and where you think the discrepancy is. Most of the time you'll find the bug mid-explanation. This isn't magic; it forces you to make your mental model explicit.
+
+INTERLEAVING SUBJECTS
+
+Don't spend 4 hours on one topic. Spend 45 minutes on recursion, then 45 on sorting, then 45 on graphs, then come back to recursion. Interleaving feels harder and is more effective. You're training recall, not recognition.
+
+WHEN TO STOP
+
+Working past 1am on a CS assignment usually produces code that needs to be rewritten tomorrow anyway. Sleep is not a reward. It consolidates memory. If you're stuck and it's late, write a comment in your code explaining exactly where you're stuck, commit what you have, and sleep. You will see the answer in the morning more often than you expect.
+
+---
+
+BEFORE THE EXAM
+
+The night before: review your notes, try 2–3 practice problems, sleep. Do not learn new material the night before. If you don't know it by then, cramming won't help and will make you tired.
+
+The morning of: eat something. This sounds obvious. Students fail exams they knew the material for because they sat in an exam room for 2 hours while hypoglycemic.
+
+During the exam: read every problem before starting. If a problem is blocking you, skip it and come back. A hard problem early in the exam should not eat your time while easy points sit unanswered at the end.
+
+---
+
+GROUP STUDY GUIDELINES
+
+Good group study: each person tries the problem independently first, then you compare and discuss differences.
+
+Bad group study: someone who did the homework explains it to people who didn't. They think they learned it. They haven't.
+
+Limit groups to 3–4 people. Larger groups have too many social dynamics and too little productive confusion.

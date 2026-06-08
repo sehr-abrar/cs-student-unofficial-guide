@@ -1,0 +1,38 @@
+Source: Unofficial CS Student Survival Guide — Introduction
+URL: documents/01_intro_cs_survival_tips.txt
+
+Welcome to CS. Nobody's going to hold your hand here, and that's the point. This guide was written by students who learned the hard way. Read it before your first semester if you can.
+
+---
+
+OFFICE HOURS ARE NOT OPTIONAL
+
+Most students skip office hours because they think it means admitting they don't understand something. Flip that around: going to office hours is the single highest-leverage thing you can do. TAs and professors remember you. When you're borderline on a grade, they round up for students they've seen working hard. More importantly, you learn to ask good questions, which is the actual skill you're developing.
+
+Go even when you understand the material. Ask "I solved it this way — is there a cleaner approach?" That question gets you more than sitting in your room pretending you're fine.
+
+---
+
+READ THE SYLLABUS LIKE A CONTRACT
+
+Every CS course syllabus contains the late policy, collaboration policy, and grading breakdown. Not reading it is how students accidentally get academic integrity violations. If the syllabus says "you may discuss approaches but not share code," that means you can talk through an algorithm on a whiteboard but you cannot look at each other's code while typing. This line gets blurry fast. When in doubt, ask the professor to clarify in writing (email is fine).
+
+---
+
+HOW TO EMAIL A PROFESSOR
+
+Subject line: [CS101] Question about Problem Set 3, Problem 2
+
+Put the course code in brackets. Describe the specific issue. Show what you've already tried. Professors get 50+ emails a day. A vague email saying "I'm confused about the homework" will get a vague reply or no reply.
+
+---
+
+WHICH LANGUAGES ACTUALLY MATTER
+
+In your first year you'll probably use Python and maybe C. In systems courses you'll use C and possibly C++. In upper-division courses you'll encounter Java, Rust, or whatever the professor prefers. Don't panic about the language. The concepts transfer. Learn to read documentation quickly — that's the skill.
+
+---
+
+THE FIRST WEEK FALLACY
+
+The first week of any CS course feels manageable. Do not let that fool you. Problem sets will compound. Start early, not because the instructions say to, but because the first version of your solution is almost never the final version. Budget at least one debugging session you didn't plan for.
