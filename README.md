@@ -1,10 +1,5 @@
 # The Unofficial Guide — Project 1
 
-> **How to use this template:**
-> Complete each section *after* you've built and tested the corresponding part of your system.
-> Do not write placeholder text — if a section isn't done yet, leave it blank and come back.
-> Every section below is required for submission. One-liners will not receive full credit.
-
 ---
 
 ## Domain
@@ -44,6 +39,74 @@ This knowledge is valuable because official channels — course catalogs, syllab
 
 **Final chunk count:** 92 chunks across 12 documents (avg length 371 chars, all non-empty).
 
+### Sample Chunks
+
+Five representative chunks drawn from the corpus (source document labeled on each):
+
+**Chunk 1** — source: `11_academic_integrity_guide.txt`
+```
+e allow AI with citation requirements
+- A few have no policy yet
+
+If the syllabus doesn't address AI, ask the professor in writing before using it.
+"I asked my professor and they said it was OK" is a defense. "The syllabus didn't say I couldn't" often isn't.
+
+IF YOU'RE ACCUSED
+
+Academic integrity proceedings are stressful. A few facts:
+1. You are entitled to see the evidence against you
+2. You are
+```
+
+**Chunk 2** — source: `02_professor_reviews_algorithms.txt`
+```
+ce, later ones require real thinking. His tests are straightforward if you did the homeworks.
+
+One thing: he cold-calls in lecture sometimes. It's never humiliating — he gives you time to think and hints
+if you're stuck — but be prepared to engage.
+```
+
+**Chunk 3** — source: `01_intro_cs_survival_tips.txt`
+```
+uss approaches but not share code," that means you can talk through an algorithm on a whiteboard but you
+cannot look at each other's code while typing. This line gets blurry fast. When in doubt, ask the
+professor to clarify in writing (email is fine).
+
+HOW TO EMAIL A PROFESSOR
+
+Subject line: [CS101] Question about Problem Set 3, Problem 2
+
+Put the course code in brackets. Describe the specific iss
+```
+
+**Chunk 4** — source: `05_internship_recruiting_tips.txt`
+```
+sort in a language you listed and you can't, that's a bad interview.
+
+NEGOTIATING OFFERS
+
+You can negotiate internship offers. Most companies expect it. The scripts are simple:
+"I'm very excited about this offer. I have another offer at $X/week — is there any flexibility on the compensation?"
+
+You don't need a competing offer to negotiate, but having one helps. The worst they say is no. Nobody has
+```
+
+**Chunk 5** — source: `05_internship_recruiting_tips.txt`
+```
+ssessment (OA) — 1–2 coding problems on HackerRank or similar
+3. Phone/video interview (1–2 rounds, 45 min each)
+4. Offer (November–December, sometimes later for smaller companies)
+
+Startups and smaller companies recruit later, usually November through March.
+
+WHAT ACTUALLY GETS YOU INTERVIEWS
+
+In order of impact:
+1. Referrals — a current employee submitting your resume is more valuable than almos
+```
+
+Each chunk is self-contained and readable without surrounding context. Chunks 1 and 3 straddle a section boundary (the overlap is visible at the start), which is expected — the preceding chunk contains the complete opening sentence.
+
 ---
 
 ## Embedding Model
@@ -53,6 +116,55 @@ This knowledge is valuable because official channels — course catalogs, syllab
 **Production tradeoff reflection:** `all-MiniLM-L6-v2` is a 22M-parameter model trained for semantic similarity that runs locally with no per-query cost and sub-50ms latency per encoding. Its 256-token context window fits our 400-character chunks cleanly. The main limitation is reduced accuracy on domain-specific proper nouns — professor names like "Okonkwo" and course codes like "CS350" are rare or out-of-vocabulary tokens, so queries using those exact names may not retrieve the right chunks as reliably as queries phrased in general language.
 
 In production, I would evaluate `text-embedding-3-small` (OpenAI) for stronger accuracy on diverse student language and better handling of informal writing style, and `instructor-xl` for its ability to condition the embedding on a task-specific prompt (e.g., "represent this student review for retrieval"). The tradeoff is API latency and per-query cost versus local speed. For a student-facing tool that needs to respond quickly with no operational cost, local embedding is the right default; for a deployed product at scale, API-hosted embeddings with caching are worth the added complexity.
+
+---
+
+## Retrieval Test Examples
+
+Three queries from the evaluation plan, each showing the top-4 returned chunks with cosine distance scores.
+
+### Query 1: Prof. Chen's office hours
+
+**Query:** "What do students say about Prof. Chen's office hours in the Algorithms course?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.361 | 02_professor_reviews_algorithms.txt | `REVIEW: Prof. Chen — Introduction to Algorithms (CS301) Overall: 4/5 | Difficulty: Hard...` |
+| 2 | 0.511 | 02_professor_reviews_algorithms.txt | `...Office hours: almost no one shows up to her Thursday 3–5pm slot. Go. She will sit with you for 20 minutes...` |
+| 3 | 0.512 | 10_professor_reviews_ml_and_ai.txt | `...Office hours: packed near deadlines. Come earlier in the week...` |
+| 4 | 0.536 | 01_intro_cs_survival_tips.txt | `...OFFICE HOURS ARE NOT OPTIONAL Most students skip office hours because they think it means admitting...` |
+
+**Why the top results are relevant:** Rank 1 and 2 are both from the algorithms review document and directly concern Prof. Chen. Rank 2 contains the exact office hours information ("Thursday 3–5pm slot" and the 20-minute offer) — it scored slightly lower than rank 1 because the opener of Chen's review chunk contains her name and course number, making it a slightly stronger match to the query's mention of "Prof. Chen." Rank 3 is pulled in because the query mentions "office hours" and this chunk also contains that phrase in the context of another professor; rank 4 is the general office hours guide, which is topically relevant even though it doesn't mention Prof. Chen. All four results are on-topic; two are precisely on-target.
+
+---
+
+### Query 2: Big tech recruiting timeline
+
+**Query:** "What is the recruiting timeline for big tech summer internships?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.191 | 05_internship_recruiting_tips.txt | `RECRUITING TIMELINE (THIS IS EARLIER THAN YOU THINK) Big tech internship recruiting starts in August/September...` |
+| 2 | 0.497 | 12_research_and_grad_school.txt | `...begin outreach for summer research positions (REUs)...Senior year November–December: applications due...` |
+| 3 | 0.584 | 12_research_and_grad_school.txt | `...Apply to 8–12 programs...TIMELINE Junior year fall: start identifying professors to email...` |
+| 4 | 0.615 | 05_internship_recruiting_tips.txt | `...REJECTIONS You will get rejected. Many times. Students who land top internships often have 50+ applications...` |
+
+**Why the top results are relevant:** Rank 1 is a near-perfect match (distance 0.191) — it is the exact "recruiting timeline" section from the internship document and contains the specific August–October / November–December date ranges. Ranks 2 and 3 are from the grad school timeline document; the embedding model correctly identified that both documents contain timeline-structured information about competitive processes. While the grad school content isn't the expected answer, it's semantically adjacent and would not mislead the LLM, which sees rank 1 as the dominant source. Rank 4 covers internship rejections — still on the internship topic — and rounds out the context.
+
+---
+
+### Query 3: AI tools on assignments
+
+**Query:** "Can I use AI tools like GitHub Copilot on my CS assignments?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.365 | 11_academic_integrity_guide.txt | `...AI-ASSISTED CODE (IMPORTANT — POLICIES VARY) Many CS courses have now developed explicit policies on AI tools (GitHub Copilot, ChatGPT, Claude)...` |
+| 2 | 0.638 | 09_campus_resources_for_cs_students.txt | `THE CS TUTORING CENTER Most CS departments run a tutoring center...` |
+| 3 | 0.661 | 01_intro_cs_survival_tips.txt | `...discuss approaches but not share code...ask the professor to clarify in writing...` |
+| 4 | 0.672 | 01_intro_cs_survival_tips.txt | `...READ THE SYLLABUS LIKE A CONTRACT...collaboration policy...` |
+
+**Why the top results are relevant:** Rank 1 is the direct answer — it is the AI-Assisted Code section of the academic integrity guide and names GitHub Copilot, ChatGPT, and Claude explicitly. The 0.365 distance reflects a strong semantic match. Ranks 2–4 have noticeably higher distances (0.638–0.672), signalling weaker matches: the tutoring center chunk shares "assignments" vocabulary but not the AI tool context; the collaboration policy chunks are related (course rules about what help is allowed) but don't specifically discuss AI. The model correctly ranked the AI policy section first by a wide margin.
 
 ---
 
@@ -74,21 +186,45 @@ CRITICAL RULES:
    what they say. Keep your answer concise and direct.
 ```
 
-The user message then passes the retrieved chunks as a numbered list — `[1] (source: filename)\n{chunk text}` — followed by the question and an instruction to cite source numbers inline.
+The user message passes the retrieved chunks as a numbered list — `[1] (source: filename)\n{chunk text}` — followed by the question and an instruction to cite source numbers inline.
 
-**How source attribution is surfaced in the response:** Attribution is **programmatic and guaranteed** — `generate.py` always appends the list of retrieved source filenames to the response dict regardless of what the LLM includes inline. The LLM is also instructed to cite `[1]`, `[2]`, etc. within its answer text, but even if it fails to do so, the source list is still returned and displayed in the UI's "Retrieved from" panel.
+**How source attribution is surfaced in the response:** Attribution is **programmatic and guaranteed** — `generate.py` always appends the list of retrieved source filenames to the response dict regardless of what the LLM includes inline. The LLM is also instructed to cite `[1]`, `[2]`, etc. within its answer text. Even if the model omits inline citations, the "Retrieved from" panel in the Gradio UI always displays the source filenames.
+
+### Example grounded responses
+
+**Example 1** — query: "What do students say about Prof. Chen's office hours in the Algorithms course?"
+
+> According to the documents, Prof. Chen's office hours are "almost no one shows up to her Thursday 3–5pm slot. Go. She will sit with you for 20 minutes on a single problem if you're stuck and have tried something first" [2].
+>
+> *Sources: 02_professor_reviews_algorithms.txt, 10_professor_reviews_ml_and_ai.txt, 01_intro_cs_survival_tips.txt*
+
+**Example 2** — query: "Can I use AI tools like GitHub Copilot on my CS assignments?"
+
+> Policies on AI tools like GitHub Copilot vary by course [1]. Some courses ban AI entirely, some allow AI for understanding but not for generating solutions to be submitted, and some allow AI with citation requirements [1]. If you're not sure, ask the professor [1].
+>
+> *Sources: 11_academic_integrity_guide.txt, 09_campus_resources_for_cs_students.txt, 01_intro_cs_survival_tips.txt*
+
+### Out-of-scope query
+
+**Query:** "Where is the best sushi restaurant near campus?"
+
+> I don't have enough information in my documents to answer that.
+>
+> *Sources: 09_campus_resources_for_cs_students.txt, 07_professor_reviews_systems.txt, 04_course_selection_guide.txt*
+
+The system correctly declines rather than generating a plausible-sounding answer from the model's training data. The sources listed are the top retrieval matches (the system still retrieved and checked), but none contain information about restaurants, so the grounding rules triggered the refusal.
 
 ---
 
 ## Evaluation Report
 
-| # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
-|---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | What do students say about Prof. Chen's office hours in the Algorithms course? | Thursday 3–5pm slot, almost no one goes, she'll work with you for 20 min if you've tried first | Quoted exact Thursday 3–5pm detail and the 20-minute offer; cited [2] from the algorithms review doc | Relevant | Accurate |
-| 2 | How should I approach a homework problem I've been stuck on for over an hour? | After >1 hour without progress, ask for help via CS help room, TA, or office hours; explain where you're stuck | Mentioned rubber duck method (30-min threshold) and "write down where you're stuck" from the study strategies doc — missed the specific "after an hour, ask for help" passage | Partially relevant | Partially accurate |
-| 3 | What is the recruiting timeline for big tech summer internships? | Apps open August–September; OAs follow; offers November–December; January is too late | Correctly cited August–October applications, OA process, HackerRank; cited [1] from the recruiting doc | Relevant | Accurate |
-| 4 | Can I use AI tools like GitHub Copilot on my CS assignments? | Policies vary; some courses ban AI, some allow with citation, some have no policy — ask your professor in writing | Listed all three policy variations accurately and cited [1]; added "ask the professor" advice | Relevant | Accurate |
-| 5 | What are the signs that my course workload has become unsustainable? | Sleeping under 6 hours consistently, unable to eat regularly, missing classes from exhaustion/anxiety | Enumerated all three signs correctly from the mental health doc; cited [1] | Relevant | Accurate |
+| # | Question | Expected answer | System response | Retrieval quality | Response accuracy |
+|---|----------|-----------------|-----------------|-------------------|-------------------|
+| 1 | What do students say about Prof. Chen's office hours in the Algorithms course? | Thursday 3–5pm slot, almost no one goes, she'll work with you for 20 min if you've tried first | "According to the documents, Prof. Chen's office hours are 'almost no one shows up to her Thursday 3–5pm slot. Go. She will sit with you for 20 minutes on a single problem if you're stuck and have tried something first' [2]." | Relevant | Accurate |
+| 2 | How should I approach a homework problem I've been stuck on for over an hour? | After >1 hour without progress, ask for help via CS help room, TA, or office hours | "When you get stuck, write down exactly where you got stuck and why, that's what you study [1]. Additionally, if you're debugging and have been stuck for more than 30 minutes, explain the problem out loud to someone — anyone [1]." | Partially relevant | Partially accurate |
+| 3 | What is the recruiting timeline for big tech summer internships? | Apps open August–September; OAs follow; offers November–December; January is too late | "Big tech internship recruiting starts in August/September for the following summer, with a process that includes an online application (August–October) and an online assessment (OA) with 1–2 coding problems on HackerRank [1]." | Relevant | Accurate |
+| 4 | Can I use AI tools like GitHub Copilot on my CS assignments? | Policies vary; some ban AI, some allow with citation, some have no policy — ask your professor in writing | "Policies on AI tools like GitHub Copilot vary by course [1]. Some courses ban AI entirely, some allow AI for understanding but not for generating solutions to be submitted, and some allow AI with citation requirements [1]. If you're not sure, ask the professor [1]." | Relevant | Accurate |
+| 5 | What are the signs that my course workload has become unsustainable? | Sleeping under 6 hours consistently, unable to eat regularly, missing classes from exhaustion/anxiety | "The signs that your course workload has become unsustainable are: sleeping fewer than 6 hours per night consistently, unable to eat regular meals, and missing classes because you're too exhausted or anxious [1]." | Relevant | Accurate |
 
 **Retrieval quality:** Relevant / Partially relevant / Off-target
 **Response accuracy:** Accurate / Partially accurate / Inaccurate
@@ -103,9 +239,36 @@ The user message then passes the retrieved chunks as a numbered list — `[1] (s
 
 **Root cause (tied to a specific pipeline stage):** **Retrieval stage.** The top source returned was `03_study_strategies_cs.txt`, not `06_debugging_and_coding_habits.txt`. The query phrase "stuck on a homework problem for over an hour" semantically aligned more closely with the study strategies document — which discusses getting stuck on practice problems during exam prep — than with the debugging document. Within `06_debugging_and_coding_habits.txt`, the "HOW LONG SHOULD THIS TAKE?" section contains the exact answer, but that chunk was ranked lower than the study strategies chunks because the embedding model found the study strategies context a slightly stronger semantic match for "stuck on homework."
 
-This is a case where two documents cover related territory (being stuck, asking for help) and the model's embedding similarity score could not distinguish "stuck on a practice problem during exam prep" from "stuck on a homework assignment." The 400-char chunk size meant the "how long should this take" section was isolated in one chunk, and that chunk lost the retrieval competition to the study strategies chunks.
+This is a case where two documents cover related territory (being stuck, asking for help) and the embedding similarity score could not distinguish "stuck on a practice problem during exam prep" from "stuck on a homework assignment." The 400-char chunk size meant the "how long should this take" section was isolated in one chunk, and that chunk lost the retrieval competition to study strategies chunks.
 
 **What you would change to fix it:** Increase `top_k` from 4 to 6 so that more chunks are passed to the LLM — the correct chunk from `06_debugging_and_coding_habits.txt` likely appears at rank 5 or 6. Alternatively, restructure the debugging document so the "after one hour, ask for help" advice appears in the same chunk as other "stuck debugging" context, improving its retrieval signal.
+
+---
+
+## Query Interface
+
+The interface is a **Gradio web app** (`app.py`) accessible at `http://localhost:7860` when running locally with `python app.py`.
+
+**Input fields:**
+- **Your question** — a free-text box where the user types any question about CS courses, professors, study strategies, or campus resources. Supports Enter-to-submit.
+- **Example question buttons** — five pre-loaded questions the user can click to populate the input without typing.
+
+**Output fields:**
+- **Answer** — the LLM's grounded response, with inline `[1]`, `[2]` citations referencing the numbered context chunks passed in the prompt.
+- **Retrieved from** — a list of the source document filenames that were retrieved for this query, shown regardless of what the LLM cited inline (programmatic attribution).
+
+### Sample interaction transcript
+
+**Input:** `What are the signs that my course workload has become unsustainable?`
+
+**Answer:**
+> The signs that your course workload has become unsustainable are: sleeping fewer than 6 hours per night consistently, unable to eat regular meals, and missing classes because you're too exhausted or anxious [1].
+
+**Retrieved from:**
+```
+• 08_mental_health_and_workload.txt
+• 04_course_selection_guide.txt
+```
 
 ---
 
@@ -126,14 +289,15 @@ The spec's AI Tool Plan specified using LangChain's `CharacterTextSplitter` for 
 **Instance 1 — Ingestion and chunking pipeline**
 
 - *What I gave the AI:* The Chunking Strategy and Documents sections from `planning.md`, the pipeline architecture diagram, and the constraint that LangChain was not available as a dependency.
-- *What it produced:* `ingest.py` with `load_documents()`, `clean_text()`, `chunk_text()`, and `build_chunks()`. The chunker implemented the correct sliding-window logic. The cleaning function stripped `Source:`/`URL:` header lines and normalized whitespace.
+- *What it produced:* `ingest.py` with `load_documents()`, `clean_text()`, and `chunk_text()`. The chunker implemented the correct sliding-window logic. The cleaning function stripped `Source:`/`URL:` header lines and normalized whitespace.
 - *What I changed or overrode:* The first version did not strip the `---` markdown separator lines that appeared throughout the documents. After running the chunk inspection and seeing `---` appear in the middle of chunks, I added a `re.fullmatch(r"-{3,}", stripped)` check to the cleaning function. I also added the chunk length statistics output (`min`, `max`, `avg`) to the inspection block, which the AI had not included but which turned out to be useful for confirming the chunker was behaving correctly.
 
 **Instance 2 — Grounded generation and Gradio interface**
 
 - *What I gave the AI:* The Retrieval Approach and Evaluation Plan sections from `planning.md`, the grounding requirement (answer only from retrieved context, decline if not covered), the output format (answer + source list), and the Groq API as the LLM backend.
-- *What it produced:* `generate.py` with `ask()` — a system prompt with numbered CRITICAL RULES, a `format_context()` helper that formats retrieved chunks as a numbered list, and a Groq API call with `temperature=0.2`. Also produced `app.py` with a Gradio Blocks interface.
-- *What I changed or overrode:* The initial system prompt used softer language ("try to answer only from the documents"). I rewrote it to use explicit imperative rules ("Answer ONLY using information explicitly stated in the DOCUMENTS section below") and tested the grounding by asking a question the documents don't cover ("best sushi near campus"). The first version returned a plausible non-answer; after the rule tightening, it correctly responded "I don't have enough information in my documents to answer that." I also added `temperature=0.2` (the AI's default was 0.7), which reduced hedging language and made responses more concise and direct.
+- *What it produced:* `generate.py` with `ask()` — a system prompt with numbered CRITICAL RULES, a `format_context()` helper that formats retrieved chunks as a numbered list, and a Groq API call. Also produced `app.py` with a Gradio Blocks interface.
+- *What I changed or overrode:* The initial system prompt used softer language ("try to answer only from the documents"). I rewrote it to use explicit imperative rules ("Answer ONLY using information explicitly stated in the DOCUMENTS section below") and tested the grounding by asking a question the documents don't cover ("best sushi near campus?"). The first version returned a plausible non-answer; after the rule tightening, it correctly responded "I don't have enough information in my documents to answer that." I also set `temperature=0.2` (the AI's default was 0.7), which reduced hedging language and made responses more concise and direct.
+
 
 ---
 
