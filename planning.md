@@ -109,7 +109,7 @@ documents/           ──►    (400 chars,        ──► all-MiniLM-L6-v2
 ## AI Tool Plan
 
 **Milestone 3 — Ingestion and chunking:**
-I'll give Claude the Chunking Strategy section of this document and the requirements for `ingest.py`, asking it to implement `load_documents()` (reads all `.txt` files from `documents/`) and `chunk_text()` (uses LangChain's `CharacterTextSplitter` with chunk_size=400, chunk_overlap=50). I'll verify by printing chunk count and the first 3 chunks to check boundaries look reasonable.
+I gave Claude the Chunking Strategy section and asked it to implement `load_documents()`, `clean_text()`, and `chunk_text()` in `ingest.py`. Since LangChain is not in `requirements.txt`, it wrote a custom character-level chunker with the same sliding-window logic (chunk_size=400, chunk_overlap=50). I verified by running the script and inspecting 5 random chunks — all substantive, no HTML artifacts. Total: 92 chunks across 12 documents, avg length 371 chars.
 
 **Milestone 4 — Embedding and retrieval:**
 I'll give Claude the Retrieval Approach section and the ChromaDB documentation for the local persistent client, asking it to implement `embed_and_store()` and `retrieve()`. I'll verify by running a test query ("what do students say about office hours?") and printing the top-4 returned chunks to confirm they're topically relevant.
